@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hellocontainerdeployment
+  labels:
+    app: hellocontainer
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: hellocontainer
+  template:
+    metadata:
+      labels:
+        app: hellocontainer
+    spec:
+      containers:
+      - name: hellocontainer
+        image: antsala/hello_container:latest
+        ports:
+        - containerPort: 8080
+
